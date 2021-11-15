@@ -11,22 +11,27 @@ class TestNumberGeneratorMethods(unittest.TestCase):  #every test class must inh
         self.max_range = 514229
         self.number_generator = NumberGenerator(self.max_range)
 
-    def test_main(self):
+    def test_prime_Fibonacci(self):
         self.assertEqual(self.number_generator.generate_prime_Fibonacci(), [2, 3, 5, 13, 89, 233, 1597, 28657, 514229])
+
+    def test_sum_two_primes_Fibonacci(self):
+        max_range = 514229
+        another_umber_generator = NumberGenerator(max_range)
+        self.assertEqual(another_umber_generator.generate_sum_two_primes_Fibonacci(), [5, 8, 13, 21, 34])
 
 
     def test_is_prime(self):
-        self.assertEqual(self.number_generator._check_is_prime(1), False)
-        self.assertEqual(self.number_generator._check_is_prime(2), True)
-        self.assertEqual(self.number_generator._check_is_prime(3), True)
-        self.assertEqual(self.number_generator._check_is_prime(5054), False)
-        self.assertEqual(self.number_generator._check_is_prime(5), True)
-        self.assertEqual(self.number_generator._check_is_prime(100), False)
-        self.assertEqual(self.number_generator._check_is_prime(7919), True)
-        self.assertEqual(self.number_generator._check_is_prime(999331), True)
-        self.assertEqual(self.number_generator._check_is_prime(112909), True)
-        self.assertEqual(self.number_generator._check_is_prime(2097593), True)
-        self.assertEqual(self.number_generator._check_is_prime(87178291199), True)
+        self.assertEqual(self.number_generator.isPrime(1), False)
+        self.assertEqual(self.number_generator.isPrime(2), True)
+        self.assertEqual(self.number_generator.isPrime(3), True)
+        self.assertEqual(self.number_generator.isPrime(5054), False)
+        self.assertEqual(self.number_generator.isPrime(5), True)
+        self.assertEqual(self.number_generator.isPrime(100), False)
+        self.assertEqual(self.number_generator.isPrime(7919), True)
+        self.assertEqual(self.number_generator.isPrime(999331), True)
+        self.assertEqual(self.number_generator.isPrime(112909), True)
+        self.assertEqual(self.number_generator.isPrime(2097593), True)
+        self.assertEqual(self.number_generator.isPrime(87178291199), True)
 
     def test_primes_sieve_eratosthenes(self):
         self.assertEqual(self.number_generator.primes_sieve_eratosthenes(10), [2,3,5,7])
