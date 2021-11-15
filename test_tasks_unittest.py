@@ -13,5 +13,22 @@ class TestNumberGeneratorMethods(unittest.TestCase):  #every test class must inh
     def test_main(self):
         self.number_generator.generate(max_range=15)
 
+    def test_is_prime(self):
+        self.assertEqual(self.number_generator.check_prime(1), False)
+        self.assertEqual(self.number_generator.check_prime(2), True)
+        self.assertEqual(self.number_generator.check_prime(3), True)
+        self.assertEqual(self.number_generator.check_prime(5054), False)
+        self.assertEqual(self.number_generator.check_prime(5), True)
+        self.assertEqual(self.number_generator.check_prime(100), False)
+        self.assertEqual(self.number_generator.check_prime(7919), True)
+        self.assertEqual(self.number_generator.check_prime(999331), True)
+        self.assertEqual(self.number_generator.check_prime(112909), True)
+        self.assertEqual(self.number_generator.check_prime(2097593), True)
+        self.assertEqual(self.number_generator.check_prime(87178291199), True)
+
+
+
+
+
 if __name__ == '__main__':
     unittest.main()
