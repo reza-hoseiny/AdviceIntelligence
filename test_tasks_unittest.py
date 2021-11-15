@@ -8,11 +8,11 @@ class TestNumberGeneratorMethods(unittest.TestCase):  #every test class must inh
     """
     def setUp(self):
         self.name = 'A simple number_generator'
-        self.max_range = 15
+        self.max_range = 514229
         self.number_generator = NumberGenerator(self.max_range)
 
     def test_main(self):
-        self.assertEqual(self.number_generator.generate_prime_Fibonacci(), [2,3,5,13])
+        self.assertEqual(self.number_generator.generate_prime_Fibonacci(), [2, 3, 5, 13, 89, 233, 1597, 28657, 514229])
 
 
     def test_is_prime(self):
