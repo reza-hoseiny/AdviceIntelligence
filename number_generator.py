@@ -42,7 +42,6 @@ class NumberGenerator:
     def _check_even(self, number):
         if (number > 2) and (number % 2 == 0):
               return True
-
         return False
 
     # returns True if number is prime
