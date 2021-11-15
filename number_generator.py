@@ -9,12 +9,9 @@ class NumberGenerator:
         self._intersect = None
 
     def generate_prime_Fibonacci(self):
-        # Extract elements from the numbers list for which the numbers are both prime
-        # and in the Fibonacci sequence.
+        # Extract elements from the numbers list for which the numbers are both prime  and in the Fibonacci sequence.
         self.fibonacci_series = self.generate_fibonacci_series(self.max_range)
-        # print("self.fibonacci_series\t", self.fibonacci_series)
         self.all_primes = self.primes_sieve_eratosthenes(self.max_range)
-        # print("self.all_primes\t", self.all_primes)
         self._intersect_numbers_iterator = filter(self._check_is_prime, self.fibonacci_series)
         return list(self._intersect_numbers_iterator)
 
@@ -37,7 +34,7 @@ class NumberGenerator:
         if self.all_primes is not None:
             if number in self.all_primes:
                 return True
-        else: #all_primes is None
+        else: #if all_primes is None ie never called sieve_eratosthenes before
             for i in islice(count(2), int(sqrt(number) - 1)):
                 if number % i == 0:
                     return False
