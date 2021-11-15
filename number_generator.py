@@ -2,13 +2,20 @@ from math import sqrt
 from itertools import count, islice
 
 class NumberGenerator:
-    def __init__(self, name="simple number generator"):
-        pass
+    def __init__(self, max_range = 1000):
+        self.max_range = max_range
+        self.fibonacci_series = None
+        self.all_primes= None
+        self._intersect = None
 
-    def generate(self, max_range = 1000):
-        # Extract elements from the numbers list for which check_even() returns True
-        # even_numbers_iterator = filter(check_even, numbers)
-        pass
+    def generate_prime_Fibonacci(self):
+        # Extract elements from the numbers list for which the numbers are both prime
+        # and in the Fibonacci sequence.
+        self.fibonacci_series = self.generate_fibonacci_series(self.max_range)
+        self.all_primes = self.primes_sieve_eratosthenes()
+        self._intersect_numbers_iterator = filter(self._check_is_prime, self.fibonacci_series)
+        return list(self._intersect_numbers_iterator)
+
 
     # returns True if number is even
     def _check_even(self, number):
@@ -17,19 +24,18 @@ class NumberGenerator:
 
         return False
 
-    # returns True if number is even
-    def check_prime(self, number):
+    # returns True if number is prime
+    def _check_is_prime(self, number):
         if number < 2:
             return False
 
         if self._check_even(number):
               return False
 
-        for i in islice(count(2), int(sqrt(number) - 1)):
-            if number % i == 0:
-                return False
+        if number in self.all_primes:
+            return True
 
-        return True
+        return False
 
     def primes_sieve_eratosthenes(self, max_range):
         """
@@ -64,7 +70,3 @@ class NumberGenerator:
             print(b)
             yield a
             a, b = b, a + b
-
-    # returns True if number is even
-    def check_in_Fibonacci(self, number):
-        pass
