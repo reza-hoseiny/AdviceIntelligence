@@ -26,9 +26,10 @@ class TestNumberGeneratorMethods(unittest.TestCase):  #every test class must inh
         self.assertEqual(self.number_generator.check_prime(2097593), True)
         self.assertEqual(self.number_generator.check_prime(87178291199), True)
 
-
-
-
+    def test_primes_sieve_eratosthenes(self):
+        self.assertEqual(self.number_generator.primes_sieve_eratosthenes(10), [2,3,5,7])
+        self.assertEqual(self.number_generator.primes_sieve_eratosthenes(17), [2,3,5,7,11,13,17])
+        self.assertEqual(self.number_generator.primes_sieve_eratosthenes(100), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
 
 if __name__ == '__main__':
     unittest.main()
