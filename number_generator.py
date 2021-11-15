@@ -51,6 +51,20 @@ class NumberGenerator:
 
         return prime_nums
 
+    def generate_fibonacci_series(self, max_range):
+        fib_series = list(self._fib(max_range))
+        return fib_series
+
+    def _fib(self, max_range):
+        """
+        use generator for generating Fibonacci numbers.
+        """
+        a, b = 1, 1
+        while (a <= max_range):
+            print(b)
+            yield a
+            a, b = b, a + b
+
     # returns True if number is even
     def check_in_Fibonacci(self, number):
         pass
