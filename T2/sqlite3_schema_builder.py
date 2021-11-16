@@ -16,8 +16,8 @@ with sqlite3.connect(db_filename) as conn:
         print ('Inserting initial data')
 
         conn.execute("""
-        insert into project (name, description, deadline)
-        values ('Project 1', 'Python Module of the Week', '2010-11-01')
+        insert into inventory (name, description, capacity)
+        values ('inventory1', 'Fruit inventory', '2010')
         """)
 
     else:
@@ -27,14 +27,10 @@ with sqlite3.connect(db_filename) as conn:
 with sqlite3.connect(db_filename) as conn:
     cursor = conn.cursor()
     cursor.execute("""
-    select * from project
+    select * from inventory
     """)
     for row in cursor.fetchall():
         name, description, deadline = row
-        print ('Project details for ``%s` (`%s`) due %s' % (description, name, deadline))
+        print ('Inventory details for ``%s` (`%s`) due %s' % (description, name, capacity))
 
-        # print ('Name = %s \nDescription: %s \t\t(%s)' % (name, description, deadline))
-
-    # print ('Project table has these columns:')
-    # for colinfo in cursor.description:
-    #     print (colinfo)
+        
